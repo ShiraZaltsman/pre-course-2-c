@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/User/Desktop/pre-corse/targil2/books.c
+books.h
+C:/Users/User/Desktop/pre-corse/targil2/books.h
+stdio.h
+-
+string.h
+-
+
+C:/Users/User/Desktop/pre-corse/targil2/books.h
+stdbool.h
+-
+stdio.h
+-
+stdlib.h
+-
+
+C:/Users/User/Desktop/pre-corse/targil2/local_library.c
+local_library.h
+C:/Users/User/Desktop/pre-corse/targil2/local_library.h
+
+C:/Users/User/Desktop/pre-corse/targil2/local_library.h
+books.h
+C:/Users/User/Desktop/pre-corse/targil2/books.h
+
+C:/Users/User/Desktop/pre-corse/targil2/main.c
+stdio.h
+-
+local_library.h
+C:/Users/User/Desktop/pre-corse/targil2/local_library.h
+books.h
+C:/Users/User/Desktop/pre-corse/targil2/books.h
+string.h
+-
+
