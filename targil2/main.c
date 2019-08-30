@@ -2,69 +2,103 @@
 #include "local_library.h"
 #include "books.h"
 #include <string.h>
+void menu(BookCopy **book_copies, int size);
+void print_books_in_library();
+void add_BookCopys(BookCopy **book_copies, int size);
+void free_memory(BookCopy** book_copies, int num);
+
+void phase_1();
+void phase_2();
+void phase_3();
 
 extern struct Book books[];
-int main() {
 
-    int book_num;
-    char *name;
-    struct BookCopy book_copies[10];
-    //test();
+int main(){
+    phase_1();
+    phase_2();
+    phase_3();
+}
 
-    for (int i = 0; i < num_books(); ++i) {
-        print_book(&books[i]);
+void phase_3() {
+    printf("-------phase 3-------\n");
 
-        printf("\n");
+    do_for_books(firstBook(), num_books(), print_nicely);
+    do_for_books(firstBook(), num_books(), prints_non_fiction);
+    do_for_books(firstBook(), num_books(), print_most_promoted);
+    printf("Worst book: %d\n", get_min_promotion(firstBook()));
+    printf("Minimum thrilling factor: %f\n", get_min_thrilling_factor(firstBook()));
+
+    phase_2();
+}
+
+void phase_1(){
+    printf("-------phase 1-------\n");
+    BookCopy **book_copies = malloc(10* sizeof(BookCopy*));
+    print_books_in_library();
+    add_BookCopys(book_copies,10);
+    menu(book_copies, 10);
+    free_memory(book_copies, 10);
+}
+
+void phase_2(){
+    printf("-------phase 2-------\n");
+    printf("How many book copies would you like to allocate? \n");
+    int num;
+    scanf("%d", &num);
+    BookCopy **book_copies = malloc(num*sizeof(BookCopy*));
+    print_books_in_library();
+    add_BookCopys(book_copies, num);
+    menu(book_copies, num);
+    free_memory(book_copies, num);
+}
+
+void free_memory(BookCopy** book_copies, int num) {
+    int i;
+    for (i = 0; i < num; i++) {
+        free(book_copies[i]);
     }
-    int numbers[]={1001,1002,1003,1004,1005,1008,1009,1010,1012,1013};
-    for (int j = 0; j < 10; ++j) {
-       // printf("/nPlease enter book number: ");
-     //   scanf("%d", &book_num);
-      //  while (book_name(book_num) == NULL) {
-       //     printf("EROOR! Please re-enter book number: ");
-        //    scanf("%d", &book_num);
-        //}
-        struct BookCopy newbookCopy;
-        init_copy(&newbookCopy, numbers[j]);
-        book_copies[j] = newbookCopy;
-        print_copy(&newbookCopy);
-    }
-    int userInput=0;
+    free(book_copies);
 
+}
+
+void menu(BookCopy **book_copies, int size) {
+    int userInput = 0;
     int serialnumber;
-    bool is_exsit=false;
-
-    while(userInput!=9){
-        printf("enter 1 to borrow book, 2 to return book, 9 to exit");
+    Bool is_exsit = FALSE;
+    while (userInput != 9) {
+        printf("----------------------\n");
+        printf("MENU:\npress 1 to borrow book\npress 2 to return book\npress 9 to exit\n");
+        printf("----------------------\n");
         scanf("%d", &userInput);
-
-        switch(userInput) {
+        switch (userInput) {
             case 1:
-                is_exsit=false;
+                is_exsit = FALSE;
                 while (!is_exsit) {
                     printf("Please enter book serial number to borrow: \n");
-                    scanf("%d", &serialnumber);
-                    for (int i = 0; i < 10; ++i) {
-                        if (book_copies[i].serial_number == serialnumber) {
-                            is_exsit = true;
-                            borrow_copy(&book_copies[i], true);
-
+                    scanf("%d", &serialnumber);\
+                    int i;
+                    for (i = 0; i < size; ++i) {
+                        if (book_copies[i]->serial_number == serialnumber) {
+                            is_exsit = TRUE;
+                            borrow_copy(book_copies[i], TRUE);
                         }
                     }
                     if (!is_exsit) {
                         printf("ERROR, wrong serial number!\n");
                     }
-                }break;
+                }
+                break;
 
             case 2:
-                is_exsit = false;
+                is_exsit = FALSE;
                 while (!is_exsit) {
                     printf("Please enter book serial number to return: ");
                     scanf("%d", &serialnumber);
-                    for (int i = 0; i < 10; ++i) {
-                        if (book_copies[i].serial_number == serialnumber) {
-                            is_exsit = true;
-                            borrow_copy(&book_copies[i], false);
+                    int i;
+                    for (i = 0; i < size; ++i) {
+                        if (book_copies[i]->serial_number == serialnumber) {
+                            is_exsit = TRUE;
+                            borrow_copy(book_copies[i], FALSE);
                         }
                     }
                     if (!is_exsit) {
@@ -80,9 +114,27 @@ int main() {
                 scanf("%d", &userInput);
 
         }
-
     }
+}
 
+void print_books_in_library(){
+    int i;
+    for (i = 0; i <num_books() ; ++i) {
+        print_book(&books[i]);
+        printf("\n");
+    }
+}
 
-    return 0;
+void add_BookCopys(BookCopy **book_copies, int size){
+    int num, j;
+    for (j = 0; j < size; ++j) {
+        printf("Enter a book number :");
+        scanf("%d", &num);
+        while (book_name(num) == NULL) {
+            printf("internal number not found, Please re-enter a book number: ");
+            scanf("%d", &num);
+        }
+        book_copies[j] = create_copy(num);
+        print_copy(book_copies[j]);
+    }
 }

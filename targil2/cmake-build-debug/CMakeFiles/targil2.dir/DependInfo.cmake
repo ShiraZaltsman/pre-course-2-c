@@ -4,9 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/User/Desktop/pre-corse/targil2/books.c" "C:/Users/User/Desktop/pre-corse/targil2/cmake-build-debug/CMakeFiles/targil2.dir/books.c.obj"
-  "C:/Users/User/Desktop/pre-corse/targil2/local_library.c" "C:/Users/User/Desktop/pre-corse/targil2/cmake-build-debug/CMakeFiles/targil2.dir/local_library.c.obj"
-  "C:/Users/User/Desktop/pre-corse/targil2/main.c" "C:/Users/User/Desktop/pre-corse/targil2/cmake-build-debug/CMakeFiles/targil2.dir/main.c.obj"
+  "/home/shira/targil2/pre-course-2-c-ShiraZaltsman/targil2/Genre.c" "/home/shira/targil2/pre-course-2-c-ShiraZaltsman/targil2/cmake-build-debug/CMakeFiles/targil2.dir/Genre.c.o"
+  "/home/shira/targil2/pre-course-2-c-ShiraZaltsman/targil2/books.c" "/home/shira/targil2/pre-course-2-c-ShiraZaltsman/targil2/cmake-build-debug/CMakeFiles/targil2.dir/books.c.o"
+  "/home/shira/targil2/pre-course-2-c-ShiraZaltsman/targil2/local_library.c" "/home/shira/targil2/pre-course-2-c-ShiraZaltsman/targil2/cmake-build-debug/CMakeFiles/targil2.dir/local_library.c.o"
+  "/home/shira/targil2/pre-course-2-c-ShiraZaltsman/targil2/main.c" "/home/shira/targil2/pre-course-2-c-ShiraZaltsman/targil2/cmake-build-debug/CMakeFiles/targil2.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

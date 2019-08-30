@@ -1,11 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/targil2.dir/main.c.obj"
-  "CMakeFiles/targil2.dir/books.c.obj"
-  "CMakeFiles/targil2.dir/local_library.c.obj"
+  "CMakeFiles/targil2.dir/main.c.o"
+  "CMakeFiles/targil2.dir/books.c.o"
+  "CMakeFiles/targil2.dir/local_library.c.o"
+  "CMakeFiles/targil2.dir/Genre.c.o"
   "targil2.pdb"
-  "targil2.exe"
-  "targil2.exe.manifest"
-  "libtargil2.dll.a"
+  "targil2"
 )
 
 # Per-language clean rules from dependency scanning.

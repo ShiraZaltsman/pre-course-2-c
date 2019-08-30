@@ -6,37 +6,27 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/User/Desktop/pre-corse/targil2/books.c
-books.h
-C:/Users/User/Desktop/pre-corse/targil2/books.h
-stdio.h
--
-string.h
--
+/home/shira/targil2/pre-course-2-c-ShiraZaltsman/targil2/Genre.h
 
-C:/Users/User/Desktop/pre-corse/targil2/books.h
-stdbool.h
--
+/home/shira/targil2/pre-course-2-c-ShiraZaltsman/targil2/books.h
 stdio.h
 -
 stdlib.h
 -
+Genre.h
+/home/shira/targil2/pre-course-2-c-ShiraZaltsman/targil2/Genre.h
 
-C:/Users/User/Desktop/pre-corse/targil2/local_library.c
-local_library.h
-C:/Users/User/Desktop/pre-corse/targil2/local_library.h
-
-C:/Users/User/Desktop/pre-corse/targil2/local_library.h
+/home/shira/targil2/pre-course-2-c-ShiraZaltsman/targil2/local_library.h
 books.h
-C:/Users/User/Desktop/pre-corse/targil2/books.h
+/home/shira/targil2/pre-course-2-c-ShiraZaltsman/targil2/books.h
 
-C:/Users/User/Desktop/pre-corse/targil2/main.c
+/home/shira/targil2/pre-course-2-c-ShiraZaltsman/targil2/main.c
 stdio.h
 -
 local_library.h
-C:/Users/User/Desktop/pre-corse/targil2/local_library.h
+/home/shira/targil2/pre-course-2-c-ShiraZaltsman/targil2/local_library.h
 books.h
-C:/Users/User/Desktop/pre-corse/targil2/books.h
+/home/shira/targil2/pre-course-2-c-ShiraZaltsman/targil2/books.h
 string.h
 -
 

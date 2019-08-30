@@ -1,7 +1,6 @@
-//
-// Created by User on 8/12/2019.
-//
 #include "local_library.h"
+#include "Genre.h"
+#include <string.h>
 struct Book books[] = {
         {1001, "Sun Don't Shine", 40, ADULT},
         {1002, "Irma la dos", -100, DOCUMENTARY},
@@ -24,7 +23,8 @@ struct Book books[] = {
         {1019, "Film Geek", -100, COMICS},
         {1020, "Raining Stones", -83, DOCUMENTARY}
 };
-const struct Book *first_book() {
+
+const Book *firstBook() {
 
     return &books[0];
 }
@@ -34,12 +34,58 @@ int num_books() {
 }
 
 char *book_name(int book_number) {
-    for (int i = 0; i < num_books(); ++i) {
+    int i;
+    for (i = 0; i < num_books(); ++i) {
         if (book_number==books[i].book_number){
             return books[i].name;
         }
     }
     return NULL;
+}
+
+void print_nicely(const Book* book){
+    char* dst = malloc(strlen(book->name));
+    get_nice_book_name(book->name, dst);
+    printf("%s\n", dst);
+    free(dst);
+}
+
+void prints_non_fiction(const Book* book){
+    if(book->genre.name==Non_Fiction){
+        printf("%s\n%s\n", book->name, book->genre.additional_data.nonFiction.field);
+    }
+    else
+        printf("---\n");
+}
+
+void print_most_promoted(const Book* book){
+    if(book->promotion>=MIN_MOST_PROMOTION)
+        print_book(book);
+}
+
+int get_min_promotion(const Book *books){
+    int min = books[0].promotion;
+    int i;
+    for (i = 0; i < num_books(); ++i) {
+        min = MIN(books[i].promotion, min);
+    }
+    return min;
+}
+
+float get_min_thrilling_factor(const Book *books){
+    float min = books[0].genre.additional_data.thriller.thrilling_factor;
+    int i;
+    for (i = 0; i < num_books(); ++i) {
+        min = MIN(books[i].genre.additional_data.thriller.thrilling_factor, min);
+    }
+    return min;
+}
+
+void do_for_books(const Book *books, int num, action _action){
+    int i;
+    for (i = 0; i < num; ++i) {
+        _action(&books[i]);
+    }
 }
 
 
